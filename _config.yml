@@ -1,4 +1,4 @@
-title: PopCornMeter
+title: PopcornMeter
 description: Software artifact for a Movie Recommendation Website that provides personalized movie suggestions based on user preferences. Includes user profiles, a recommendation engine, OMDb API integration, relational database design, and a watchlist feature.
 remote_theme: pmarsceill/just-the-docs
 color_scheme: "light"
