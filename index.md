@@ -15,9 +15,18 @@ nav_order: 1
 
 ## Abstract
 
-(~ 2000 characters)
+This project aims to develop a user-friendly Movie Recommendation Website designed to enhance the viewing experience by providing personalized film suggestions tailored to individual preferences. The platform enables users to explore movies aligned with their tastes, discover new titles through personalized recommendations, and maintain watchlists for future viewing.
 
-Here you should briefly explain what the project is about.
+The system supports user account creation and profile management, allowing individuals to register, specify their preferences, and keep track of films they have already watched. This viewing history, combined with their stated interests, forms the basis of the recommendation engine.
+
+To provide accurate and detailed movie information, the platform integrates with an external movie database API, which supplies data such as titles, posters, cast, genres, and ratings. This ensures that users receive up-to-date content and reliable film details.
+
+The recommendation engine analyzes user data stored in a relational database and filters movies based on various attributes, including genre, cast, themes, ratings, and viewing patterns. Recommended titles are presented with relevant metadata, such as posters and descriptions, and may include direct links to popular streaming platforms for convenient access.
+
+The system also includes a watchlist feature that allows users to bookmark movies they wish to view later. This watchlist contributes to refining the recommendation model over time, as the system learns from user interactions and evolving preferences.
+
+Overall, the project aims to deliver an intuitive and efficient movie discovery tool that personalizes the film-finding process and improves the overall user experience.
+
 
 ## Disclaimer (if needed)
 
