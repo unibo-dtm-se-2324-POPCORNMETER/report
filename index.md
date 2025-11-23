@@ -5,12 +5,13 @@ has_children: false
 nav_order: 1
 ---
 
-# Project title
+# PopcornMeter
 
 ### Authors
 
-- [Giovanni Ciatto](mailto:giovanni.ciatto@unibo.it)
-- [Davide Domini](mailto:davide.domini@unibo.it)
+- [Ethar Mohammed Hassan Ali](mailto:ethar.ali@unibo.it)
+- [Farideh Tavakoli](mailto:farideh.tavakoli@studio.unibo.it)
+- [Kosar Mazahery](mailto:kosar.mazahery@studio.unibo.it)
 
 ## Abstract
 
