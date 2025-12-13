@@ -15,23 +15,69 @@ nav_order: 1
 
 ## Abstract
 
-This project aims to develop a user-friendly Movie Recommendation Website designed to enhance the viewing experience by providing personalized film suggestions tailored to individual preferences. The platform enables users to explore movies aligned with their tastes, discover new titles through personalized recommendations, and maintain watchlists for future viewing.
+### Overview
 
-The system supports user account creation and profile management, allowing individuals to register, specify their preferences, and keep track of films they have already watched. This viewing history, combined with their stated interests, forms the basis of the recommendation engine.
+We are building a **Movie Recommendation Website** designed to improve how users discover movies by delivering **personalized suggestions** based on their preferences and activity. The platform will allow users to create an account, manage their profiles, organize movies into watchlists, and receive recommendations that evolve over time.
 
-To provide accurate and detailed movie information, the platform integrates with an external movie database API, which supplies data such as titles, posters, cast, genres, and ratings. This ensures that users receive up-to-date content and reliable film details.
+### Core User Experience
 
-The recommendation engine analyzes user data stored in a relational database and filters movies based on various attributes, including genre, cast, themes, ratings, and viewing patterns. Recommended titles are presented with relevant metadata, such as posters and descriptions, and may include direct links to popular streaming platforms for convenient access.
+After signing up and logging in, each user will have access to:
 
-The system also includes a watchlist feature that allows users to bookmark movies they wish to view later. This watchlist contributes to refining the recommendation model over time, as the system learns from user interactions and evolving preferences.
+- **Account/Profile Page**
+    
+    Stores and displays user information (e.g., username, email, basic settings).
+    
+- **Favorite Genres Page**
+    
+    Users can select and update their preferred genres, which will directly influence recommendations.
+    
+- **Watchlist System (3 Status Categories)**
+    
+    Users can manage movies under:
+    
+    - Want to Watch
+    - Watching
+    - Watched
 
-Overall, the project aims to deliver an intuitive and efficient movie discovery tool that personalizes the film-finding process and improves the overall user experience.
+This watchlist history helps the system understand the user’s taste and refine recommendations.
 
+### Recommendation Approach
 
-## Disclaimer (if needed)
+The website will include a **rule-based recommendation system** (simple and explainable). For example:
 
-During the preparation of this work, the author(s) used [NAME TOOL / SERVICE] to [REASON].
+- Recommend movies that match the user’s **top favorite genres**
+- Increase recommendation priority for genres that appear frequently in the user’s **Watched** list
+- Optionally reduce repetition by filtering out movies the user has already marked as **Watched**
 
-After using this tool/service, the author(s) reviewed and edited the content as needed
-and take(s) full responsibility for the content of the final report/artifact.
+This approach ensures recommendations are **personalized, fast, and easy to implement/debug**, while still feeling relevant to the user.
+
+### Movie Data and API Integration
+
+To provide rich and reliable movie details, the application will integrate with a **public movie API**. When a user searches for a title, the system will call the API to fetch information such as:
+
+- Poster and cover images
+- Description/overview
+- Cast and crew
+- Genres, ratings, runtime, release year
+- Availability and/or links to streaming platforms (when supported by the API)
+
+### Database and Backend Design
+
+A **relational database** will store and manage user data and watchlist history. Key stored data will include:
+
+- User accounts and authentication data
+- Favorite genres
+- Watchlist entries (movie + status + timestamps)
+- Recommendation-related data (e.g., genre weights, recently recommended titles)
+
+This structure supports filtering and recommendation logic using attributes like **genre, rating, themes, cast**, and other available metadata from the API.
+
+### Expected Outcomes
+
+By combining account personalization, structured watchlists, API-powered movie details, and an explainable recommendation algorithm, the platform will help users:
+
+- Discover movies aligned with their interests
+- Track what they’ve watched and what they plan to watch
+- Get better recommendations as their activity increases
+- Access movie information quickly through search and detailed results
 
