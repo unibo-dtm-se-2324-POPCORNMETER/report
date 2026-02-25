@@ -305,7 +305,7 @@ https://www.omdbapi.com/
 
 ---
 
-# 5. Glossary
+## 5. Glossary
 
 | Term | Definition |
 |------|------------|
