@@ -51,9 +51,9 @@ In a professional setting, the team uses:
 
 Primary contact:
 
--   Project Maintainer (Team Lead): [[example@email.com](mailto:example@email.com)]
+-   Project Maintainer (Team Lead): [[kosar.mazahery@studio.unibo.it](mailto:example@email.com)]
     
--   Technical Owner (CI/CD): [[example@email.com](mailto:example@email.com)]
+-   Technical Owner (CI/CD): [[ethar.ali@studio.unibo.it](mailto:example@email.com)]
     
 
 ----------
