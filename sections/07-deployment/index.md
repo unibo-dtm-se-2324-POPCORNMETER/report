@@ -6,21 +6,69 @@ nav_order: 8
 
 # Deployment
 
-This section explains what operations are needed to make the software work on the users' machine(s)
-
 ## User installation
 
-- Does the user need to install something on their machine(s) to run your software?
-    * If yes, what is it?
-    * If yes, how to install it? (report the commands to run)
-    * If yes, how to configure it? (e.g. creating configuration files, setting environment variables, etc.)
+Popcorn Meter is primarily a Streamlit application intended to run on the user's machine.
+
+Users need:
+
+- Python 3.10 or higher (recommended: Python 3.12+)
+- `pip`
+- Poetry (recommended for reproducible setup)
+
+### Installation from source (recommended)
+
+```bash
+git clone https://github.com/unibo-dtm-se-2324-POPCORNMETER/artifact.git
+cd artifact
+pip install -r requirements.txt
+poetry install
+```
+
+### Configuration
+
+For full functionality, create `.streamlit/secrets.toml` and add API keys:
+
+```toml
+OMDB_API_KEY = "your_omdb_key"
+TMDB_API_KEY = "your_tmdb_key"
+```
+
+Without these keys, some features (for example trending and movie details from external APIs) may be unavailable or degraded.
+
+### Run the application
+
+```bash
+poetry run popcorn-meter
+# or
+poetry run python -m popcorn_meter
+```
+
+### Optional installation from TestPyPI
+
+The package can also be installed from TestPyPI:
+
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple popcorn-meter==<version>
+```
 
 ## Server-side installation
 
-- Does your software need to be installed on a server?
-    * If yes, what is it?
-    * If yes, how to install it?
-    * If yes, how to configure it?
+A dedicated server is not required for normal use.
+Popcorn Meter is designed to run locally on the user's machine with local SQLite persistence.
 
-- Does your software need to further software to be installed on the server? (e.g. a database, a message broker, etc.)
-    * same questions as above
+### Optional hosted deployment
+
+A hosted Streamlit deployment is possible (for example, Streamlit Community Cloud).
+In that case:
+
+- Deploy from the artifact repository
+- Set app secrets (`OMDB_API_KEY`, `TMDB_API_KEY`) in Streamlit Cloud
+- Use persistent storage if long-term account/watchlist data is required
+
+If hosted on Streamlit Cloud default settings, storage can be ephemeral, so user data may not persist across restarts/redeployments.
+
+## Additional server software
+
+No additional server software (message broker, external DB server, etc.) is required by default.
+The project uses SQLite as embedded local storage.
