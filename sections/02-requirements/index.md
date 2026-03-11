@@ -455,27 +455,10 @@ OMDb Website
 
 # 5. Glossary
 
-Term
-
-Definition
-
-Watchlist
-
-List of movies a user intends to watch
-
-Watched
-
-List of movies already seen
-
-Genre
-
-Category of a movie (e.g., Action, Drama)
-
-Recommendation
-
-Suggested movie based on user preferences and behavior
-
-Session
-
-Active authenticated state of a user
-
+|Term  |Definition  |
+|--|--|
+|Watchlist  |List of movies a user intends to watch  |
+|Watched  |List of movies already seen  |
+|Genre |Category of a movie (e.g., Action, Drama)  |
+|Recommendation |Suggested movie based on user preferences and behavior  |
+|Session |Active authenticated state of a user  |
