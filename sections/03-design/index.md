@@ -403,7 +403,7 @@ Main methods:
 
 ----------
 
-#### `RepoPort`
+### `RepoPort`
 
 Defines the persistence operations required by the application layer.
 
@@ -422,7 +422,7 @@ Main responsibilities:
 
 ----------
 
-#### `MovieInfoPort`
+### `MovieInfoPort`
 
 Defines the contract for retrieving movie metadata.
 
@@ -433,7 +433,7 @@ Main method:
 
 ----------
 
-#### `SqliteRepo`
+### `SqliteRepo`
 
 Concrete implementation of `RepoPort`.
 
@@ -448,7 +448,7 @@ Main responsibilities:
 
 ----------
 
-#### `OmdbClient`
+### `OmdbClient`
 
 Concrete implementation of `MovieInfoPort`.
 
@@ -684,22 +684,6 @@ The following data is shared conceptually across layers:
 
 The application layer acts as the central coordination point for this shared data.
 
-----------
 
-This version is now aligned with the latest code you uploaded:
-
--   layered + ports/adapters architecture
-    
--   `RepoPort` / `MovieInfoPort`
-    
--   password hashing in SQLite repo
-    
--   feedback persistence
-    
--   hybrid recommendation logic
-    
--   OMDb and TMDb usage
-    
--   Streamlit session behavior
     
 
