@@ -1,3 +1,9 @@
+---
+title: Concept
+has_children: false
+nav_order: 1
+---
+
 # Concept
 
 Popcorn Meter is a small web application with a GUI built in Streamlit. It helps users discover movies, keep a personal watchlist, track watched movies, and get simple recommendations.
