@@ -1,4 +1,8 @@
-
+---
+title: Future work
+has_children: false
+nav_order: 10
+---
 
 # User Guide
 
