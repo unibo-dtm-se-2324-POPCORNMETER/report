@@ -1,9 +1,9 @@
 
 
 
-# 7. Validation
+#  Validation
 
-## 7.1 Testing Approach
+## Testing Approach
 
 The project adopts a **layered testing strategy**, consistent with the architectural layers of the system:
 
@@ -59,9 +59,9 @@ In the CI pipeline, additional scripts generate **coverage reports** using the c
 
 ----------
 
-# 7.2 Automated Testing
+#  Automated Testing
 
-## 7.2.1 Unit Testing
+##  Unit Testing
 
 ### Scope
 
@@ -258,7 +258,7 @@ Estimated coverage levels:
 
 ----------
 
-# 7.2.2 Integration Testing
+#  Integration Testing
 
 ### Scope
 
@@ -381,7 +381,7 @@ All repository integration tests pass successfully.
 
 ----------
 
-# 7.2.3 System Testing (Automated)
+#  System Testing (Automated)
 
 A lightweight **system smoke test** validates that the entire application can be initialized successfully.
 
@@ -433,7 +433,7 @@ All system smoke tests pass.
 
 ----------
 
-# 7.3 Continuous Integration
+#  Continuous Integration
 
 All tests are executed automatically through **GitHub Actions** on each repository push.
 
@@ -463,7 +463,7 @@ This process ensures:
 
 ----------
 
-# 7.4 Manual Acceptance Tests
+#  Manual Acceptance Tests
 
 In addition to automated testing, manual acceptance tests were performed to validate user-visible functionality.
 
