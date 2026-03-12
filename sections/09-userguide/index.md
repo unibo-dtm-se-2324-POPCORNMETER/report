@@ -214,11 +214,21 @@ The watched list is used to avoid recommending movies the user has already seen.
 
 # Viewing Recommendations
 
-The **Recommendations** section suggests movies based on:
+The Recommendations section generates personalized movie suggestions.
 
--   the user's favorite genres
-    
--   the user's watch history
+The recommendation engine uses a hybrid scoring system based on:
+
+1. favorite genres (strongest signal)
+
+2. actors appearing in previously watched movies
+
+3. IMDb rating
+
+4. plot keywords related to preferred genres
+
+5. watchlist presence
+
+6. user feedback (likes, dislikes, ratings)
     
 
 The system generates a list of recommended movie titles that match the user's preferences but have not yet been watched.
