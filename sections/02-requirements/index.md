@@ -1,9 +1,9 @@
 
 
 
-# 1. Requirements
+#  Requirements
 
-## 1.1 User Stories (Personas)
+## User Stories (Personas)
 
 ### Persona 1 — Guest User
 
@@ -49,7 +49,7 @@ A logged-in user who wants personalized recommendations and persistent movie lis
 
 ----------
 
-# 1.2 Requirements Analysis
+#  Requirements Analysis
 
 This section describes **what the system must do**, independently from how it is implemented.
 
@@ -64,7 +64,7 @@ Requirements are divided into:
 
 ----------
 
-# 2. Functional Requirements (FR)
+#  Functional Requirements (FR)
 
 ## FR1 — User Registration
 
@@ -325,7 +325,7 @@ Each use case corresponds to one of the functional requirements (FR1–FR11).
 
 ----------
 
-# 3. Non-Functional Requirements (NFR)
+#  Non-Functional Requirements (NFR)
 
 ## NFR1 — Usability
 
@@ -394,7 +394,7 @@ The system relies on an external movie database API for movie information.
 
 ----------
 
-# 4. Implementation Requirements (IR)
+#  Implementation Requirements (IR)
 
 ## IR1 — Programming Language
 
@@ -453,7 +453,7 @@ OMDb Website
 
 ----------
 
-# 5. Glossary
+#  Glossary
 
 |Term  |Definition  |
 |--|--|
