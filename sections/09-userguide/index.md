@@ -259,6 +259,4 @@ The system may display messages in the following situations:
 
 These messages help users understand what action is required to proceed.
 
-----------
 
-If you want, I can also give you a **much shorter version (about half the length)** that professors often prefer for reports.
