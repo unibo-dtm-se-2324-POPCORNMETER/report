@@ -1,14 +1,14 @@
 
 
-# 3. Design
+#  Design
 
 This chapter explains the design strategies adopted to satisfy the requirements identified in the analysis. The goal of the design is to define the structure of the system independently from low-level implementation details, while still remaining consistent with the final project.
 
 ----------
 
-## 3.1 Architecture
+##  Architecture
 
-### 3.1.1 Architectural style
+###  Architectural style
 
 The system adopts a **layered architecture** with **dependency inversion through ports**, which gives it some characteristics of a lightweight **hexagonal architecture (ports and adapters)**.
 
@@ -142,7 +142,7 @@ This responsibility is mainly implemented in:
 
 ----------
 
-## 3.2 Infrastructure
+##  Infrastructure
 
 Although the application is not a distributed system in the strict sense, it still includes infrastructural components that support persistence, external communication, and execution.
 
@@ -196,9 +196,9 @@ So, in the local development setup:
 
 ----------
 
-## 3.3 Modelling
+##  Modelling
 
-### 3.3.1 Domain-Driven Design (DDD) modelling
+###  Domain-Driven Design (DDD) modelling
 
 The domain can be divided into the following bounded contexts.
 
@@ -344,7 +344,7 @@ The system does not explicitly implement domain event objects, but the following
 
 ----------
 
-## 3.4 Object-Oriented Modelling
+##  Object-Oriented Modelling
 
 ### Main data types
 
@@ -485,7 +485,7 @@ Main responsibilities:
 
 ----------
 
-## 3.5 Interaction
+##  Interaction
 
 The main interaction style is **request-response**.
 
@@ -513,7 +513,7 @@ The application service delegates persistence operations to the repository and e
 
 ----------
 
-## 3.6 Behaviour
+##  Behaviour
 
 ### Stateful components
 
@@ -596,7 +596,7 @@ This behavior is deterministic and request-driven.
 
 ----------
 
-## 3.7 Data-related aspects
+##  Data-related aspects
 
 ### Persistent data
 
