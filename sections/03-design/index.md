@@ -202,149 +202,108 @@ So, in the local development setup:
 
 ##  Modelling
 
-###  Domain-Driven Design (DDD) modelling
+The project adopts some *DDD-inspired* design choices, but it is *not a full Domain-Driven Design implementation*.
 
-The domain can be divided into the following bounded contexts.
+In particular, the system follows DDD-related principles such as:
 
-#### 1. Authentication context
+- separation between presentation, application, and infrastructure concerns
+- dependency inversion through abstract ports (RepoPort and MovieInfoPort)
+- identification of the main domain concepts independently from technical details
 
-Responsible for:
+At the same time, the project does not implement a complete DDD model with rich entities, value objects, aggregate roots, factories, and explicit domain events. Most domain concepts are represented in a lighter way through application-service logic, repository methods, and persisted records.
 
--   user registration
-    
--   login
-    
--   session identity
-    
+For this reason, the system is more accurately described as *DDD-inspired* rather than strictly *DDD-driven*.
 
-Main concepts:
+### Conceptual domain areas
 
--   **User** (entity)
-    
--   **SessionUser** (value object / session representation)
-    
+The domain can be conceptually organized into the following areas of responsibility.
 
-#### 2. Preference and personalization context
+#### 1. Authentication
 
 Responsible for:
 
--   favorite genres
-    
--   watchlist
-    
--   watched list
-    
--   user feedback
-    
--   recommendation generation
-    
+- user registration
+- login
+- session identity
 
 Main concepts:
 
--   **Genre** (value-like concept)
-    
--   **Watchlist entry**
-    
--   **Watched entry**
-    
--   **Feedback**
-    
--   **Recommendation**
-    
 
-#### 3. External movie information context
+- *user identity*
+- *SessionUser (session representation)*
+
+#### 2. Preferences and personalization
 
 Responsible for:
 
--   retrieving metadata from OMDb
-    
--   using movie details in recommendation scoring
-    
+- favorite genres
+- watchlist
+- watched movies
+- user feedback
+- recommendation generation
 
 Main concepts:
 
--   **Movie metadata**
-    
--   **External movie information provider**
-    
+- favorite genre
+- watchlist item
+- watched item
+- feedback
+- recommended movie titles
 
-----------
+#### 3. External movie information
 
-### Domain concepts
+Responsible for:
 
-#### Entities
+- retrieving metadata from OMDb
+- using external movie information to enrich search and recommendation features
 
--   **User**
-    
-    -   id
-        
-    -   username
-        
-    -   email
-        
-    -   password
-        
--   **SessionUser**
-    
-    -   username
-        
-    -   user_id
-        
+Main concepts:
 
-#### Value objects / structured values
+- movie metadata
+- external movie information provider
 
--   Genre
-    
--   Movie title
-    
--   Feedback values (`liked`, `rating`, `timestamp`)
-    
+### Domain concepts in the current implementation
 
-#### Aggregates
+The current implementation includes the following domain concepts, although they are not all modeled as explicit rich domain objects.
 
--   Watchlist
-    
--   Watched list
-    
--   Feedback collection for a user
-    
+#### Core concepts
+
+- *User identity*, represented through login data and the SessionUser structure
+- *Favorite genres*, stored persistently and used by the recommendation logic
+- *Watchlist* and *watched movies*, associated with a user
+- *Feedback*, represented through like/dislike and optional rating values
+- *Recommendation results*, computed dynamically from user-related data and external movie metadata
 
 #### Repositories
 
--   `RepoPort` defines the abstract repository contract
-    
--   `SqliteRepo` implements the repository behavior
-    
+- RepoPort defines the abstract repository contract used by the application layer
+- SqliteRepo implements persistence behavior using SQLite
 
 #### Services
 
--   `AppService` acts as the main domain/application service
-    
+- AppService acts as the main application service and coordinates the use cases
+- recommendation rules are implemented inside the application service rather than in a separate domain service
 
-#### Domain events (conceptual)
+#### Conceptual domain events
 
-The system does not explicitly implement domain event objects, but the following events exist conceptually:
+The system does not implement explicit domain event objects. However, the following events can be identified conceptually at the business level:
 
--   user registered
-    
--   user logged in
-    
--   genres updated
-    
--   movie added to watchlist
-    
--   movie marked as watched
-    
--   feedback saved
-    
--   recommendation requested
-    
-
-### Context map diagram
+- user registered
+- user logged in
+- genres updated
+- movie added to watchlist
+- movie marked as watched
+- feedback saved
+- recommendation requested
 
 
 
-![PlantUML Diagram](https://uml.planttext.com/plantuml/png/VP51Qy9048Nl-HM3z_o5ecWjWg718Zr83-FccInDTihkA6BfVtVTW589kStRUVEz6NOQbBqUkpRxOVFDDMWoEse3fzQmMd4q5wSuwuH-CwBTDi1_tOeFX13RlVxB7kCbV137hRqCpI_v9Dugw0tE8oJK9wjfMXlqeL2bUWbK-mXEOWCZNGTNzTorrDRyZtuzAtoCfa9E5a_9wMtb3bAAxvFUYyMU2YX78YVIS0Rb-Sl0vcFc-n6ZnFjrOwwdBQVH5B_h2W00)
+### DDD note
+
+The project does not model the domain through a complete set of rich entities, aggregate roots, value objects, and factories. Instead, the design uses a lighter application-service-centered structure with repository abstractions and clear domain concepts. This choice was considered appropriate for the project scope and is consistent with describing the system as *DDD-inspired* rather than as a strict DDD implementation.
+No explicit domain factories were introduced because the project domain is relatively small and object creation does not require complex construction logic or aggregate assembly.
+    
+
 
 ----------
 
@@ -464,6 +423,17 @@ Main responsibilities:
     
 -   validate returned data format
     
+
+----------
+
+### `SessionUser`
+
+A lightweight structured object returned after a successful login.
+
+Main attributes:
+
+- `username`
+- `user_id`
 
 ----------
 
@@ -625,7 +595,7 @@ Relational storage was chosen because:
 
 -   the data is structured
     
--   entities are clearly related to users
+-   stored records are clearly associated with users
     
 -   uniqueness and integrity constraints are needed
     
