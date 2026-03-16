@@ -13,13 +13,13 @@ The project uses **Git** as the distributed version control system and **GitHub*
 
 ### Branching Strategy
 
-Development follows a **multi-branch workflow** separating stable releases from ongoing development and experimental features.
+The repository uses multiple branches for development, but releases are automated from the main release branch (`master`, with `main` also supported in workflow configuration).
 
 Main branches:
 
--   **master** – stable production-ready code
+-   The repository contains both **master** and **develop** branches
     
--   **develop** – integration branch for features before release
+-   release automation is configured for **master/main**, not for **develop**
     
 
 Feature development occurs in **dedicated feature branches**, such as:
@@ -37,11 +37,11 @@ Feature development occurs in **dedicated feature branches**, such as:
 -   `feature/integration-final`
     
 
-Each feature branch contains the implementation of a specific functionality and is later merged into `develop`, which is then merged into `master` during releases.
+Feature branches are used for isolated development work and are later integrated through pull requests.
 
 This structure allows multiple contributors to work simultaneously without interfering with the stable version of the application.
 
-The commit history shows that releases are produced through merges from `develop` into `master`, followed by automated release commits (e.g., `chore(release): 1.1.2`). This ensures traceable versioning and stable release points.
+The commit history shows automated release commits such as `chore(release): 2.4.7`, but it does not support claiming that every release is produced specifically through merges from `develop` into `master`. This ensures traceable versioning and stable release points.
 
 ----------
 
@@ -86,7 +86,7 @@ Changes are integrated into the main development branches through **pull request
 
 Typical workflow:
 
-1.  Developer creates a feature branch from `develop`.
+1.  Developer works on a feature branch.
     
 2.  Changes are committed following the conventional commit format.
     
@@ -114,7 +114,7 @@ This workflow ensures that:
 
 The system communicates with external services using the **HTTP protocol over TCP**.
 
-The OMDb movie database is accessed through a REST API using HTTP requests. The client is implemented in Python using the `requests` library.
+The OMDb API is accessed through HTTP requests. The client is implemented in Python using the `requests` library.
 
 Example interaction:
 
@@ -206,7 +206,7 @@ When a user logs in:
 3.  The repository queries the database to check if they match.
     
 
-Authentication logic is handled in the application service layer.
+Authentication is coordinated by the application service layer, while credential verification and password hashing are implemented in the `SqliteRepo` infrastructure component.
 
 Example:
 
@@ -262,7 +262,7 @@ Python was chosen because:
 -   it integrates well with web APIs and lightweight databases.
     
 
-The project supports Python versions between **3.9 and 4.0**.
+The project supports Python versions **>=3.10 and <4.0.0**.
 
 ----------
 
@@ -325,7 +325,7 @@ Poetry manages:
 
 The project includes testing and static analysis tools such as:
 
--   **pytest / unittest** – automated testing
+-   **pytest** for test execution, with some test modules written using **unittest.TestCase**
     
 -   **coverage** – test coverage measurement
     
@@ -351,7 +351,7 @@ The application integrates with the **OMDb API (Open Movie Database)** to retrie
 
 This functionality is implemented in the `OmdbClient` infrastructure component.
 
-The API key is provided through an environment variable:
+The OMDb API key can be provided through an environment variable or through Streamlit secrets:
 
 ```
 OMDB_API_KEY
@@ -370,12 +370,13 @@ Release automation:
 
 -   determines the next version based on commit messages
     
+-   updates project versioning metadata
+    
 -   updates the changelog
     
 -   publishes packages
     
--   creates GitHub releases.
+-   creates GitHub releases when not running in dry-run mode.
     
 
 This automation integrates with GitHub Actions in the CI/CD pipeline.
-
