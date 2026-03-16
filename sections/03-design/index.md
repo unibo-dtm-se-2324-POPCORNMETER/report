@@ -59,9 +59,9 @@ A particularly important design choice is that the application service does not 
 
 The system follows this structure:
 
--   **Presentation layer**: Streamlit user interface
+-   **Presentation layer**: Streamlit user interface implemented in `popcorn_meter/ui/streamlit_app.py`
     
--   **Application layer**: `AppService`
+-   **Application layer**: `AppService` and application ports defined in `popcorn_meter/application/`
     
 -   **Infrastructure layer**:
     
@@ -91,7 +91,7 @@ Responsible for:
 
 This responsibility is mainly implemented in:
 
--   `streamlit_app.py`
+-   `popcorn_meter/ui/streamlit_app.py`
     
 
 #### Application layer
@@ -113,7 +113,7 @@ Responsible for:
 
 This responsibility is mainly implemented in:
 
--   `use_cases.py`
+-   `popcorn_meter/application/use_cases.py`
     
 
 #### Infrastructure layer
@@ -126,14 +126,14 @@ Responsible for:
     
 -   retrieving movie details from OMDb
     
--   optionally retrieving trending content through external APIs
+-   retrieving movie details from OMDb, while trending titles are currently fetched directly in the Streamlit UI
     
 
 This responsibility is mainly implemented in:
 
--   `sqlite_repo.py`
+-   `popcorn_meter/infrastructure/sqlite_repo.py`
     
--   `omdb_client.py`
+-   `popcorn_meter/infrastructure/omdb_client.py`
     
 
 ----------
@@ -187,7 +187,7 @@ So, in the local development setup:
 
 -   The UI instantiates local components directly in code.
     
--   The OMDb and TMDb services are contacted through fixed HTTP endpoints.
+-   OMDb is contacted through the `OmdbClient` adapter, while TMDb trending titles are currently fetched directly by the Streamlit UI.
     
 -   No service discovery, load balancer, broker, or DNS-based internal architecture is required.
     
@@ -230,7 +230,7 @@ Main concepts:
 
 
 - *user identity*
-- *SessionUser (session representation)*
+- *SessionUser (session representation of the logged-in user)*
 
 #### 2. Preferences and personalization
 
@@ -244,7 +244,7 @@ Responsible for:
 
 Main concepts:
 
-- favorite genre
+- favorite genres
 - watchlist item
 - watched item
 - feedback
@@ -268,7 +268,7 @@ The current implementation includes the following domain concepts, although they
 
 #### Core concepts
 
-- *User identity*, represented through login data and the SessionUser structure
+- *User identity*, represented through persisted login data and the SessionUser object returned after login
 - *Favorite genres*, stored persistently and used by the recommendation logic
 - *Watchlist* and *watched movies*, associated with a user
 - *Feedback*, represented through like/dislike and optional rating values
@@ -277,7 +277,7 @@ The current implementation includes the following domain concepts, although they
 #### Repositories
 
 - RepoPort defines the abstract repository contract used by the application layer
-- SqliteRepo implements persistence behavior using SQLite
+- SqliteRepo implements persistence behavior using SQLite and handles password hashing and verification
 
 #### Services
 
@@ -428,7 +428,7 @@ Main responsibilities:
 
 ### `SessionUser`
 
-A lightweight structured object returned after a successful login.
+A lightweight dataclass returned after a successful login.
 
 Main attributes:
 
@@ -506,9 +506,13 @@ The session state stores temporary runtime information such as:
     
 -   current page
     
--   cached last search result
+-   last opened or searched movie details
     
 -   dismissed recommendations
+
+-   recommendation page state
+
+-   current home search query
     
 
 ### Stateless components
@@ -563,7 +567,7 @@ Recommendation generation behaves as follows:
     
 7.  sort results
     
-8.  if no OMDb-based results exist, fallback to demo catalog
+8.  if no OMDb-based results exist, fall back to a built-in demo catalog
     
 
 This behavior is deterministic and request-driven.
@@ -660,4 +664,3 @@ The application layer acts as the central coordination point for this shared dat
 
 
     
-
