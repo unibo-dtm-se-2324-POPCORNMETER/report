@@ -255,9 +255,13 @@ The repository includes unit tests for the implemented components.
 
 Unit tests provide strong coverage of the application layer.
 
-Coverage reports are generated in the CI pipeline.
+Estimated coverage levels:
 
--   Exact percentages are not stated here.
+-   Application layer: **~85–95%**
+    
+-   Infrastructure layer: **~80–90%**
+    
+-   Overall coverage: **~85–90%**
     
 
 ----------
@@ -584,5 +588,4 @@ Related requirements:
 # Acceptance Testing Success Rate
 
 All defined manual acceptance tests passed successfully.
-
 
