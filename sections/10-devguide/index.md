@@ -61,11 +61,9 @@ In a professional environment, communication is organized through the following 
 
 Primary contacts:
 
-Team Member : 
-[kosar.mazahery@studio.unibo.it](mailto:kosar.mazahery@studio.unibo.it)
+**Team Member:** [kosar.mazahery@studio.unibo.it](mailto:kosar.mazahery@studio.unibo.it)
 
-Team Member :  
-[ethar.ali@studio.unibo.it](mailto:ethar.ali@studio.unibo.it)
+**Team Member:** [ethar.ali@studio.unibo.it](mailto:ethar.ali@studio.unibo.it)
 
 ----------
 
@@ -520,4 +518,3 @@ A new developer joining the project should follow this checklist:
     
 7.  Create a feature branch for development.
     
-
