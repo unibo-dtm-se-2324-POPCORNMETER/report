@@ -61,10 +61,10 @@ In a professional environment, communication is organized through the following 
 
 Primary contacts:
 
-Project Maintainer (Team Lead)  
+Team Member : 
 [kosar.mazahery@studio.unibo.it](mailto:kosar.mazahery@studio.unibo.it)
 
-Technical Owner (CI/CD)  
+Team Member :  
 [ethar.ali@studio.unibo.it](mailto:ethar.ali@studio.unibo.it)
 
 ----------

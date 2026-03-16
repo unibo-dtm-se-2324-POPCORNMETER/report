@@ -37,7 +37,7 @@ Although strict **Test-Driven Development (TDD)** was not applied from the begin
 
 # Testing Framework
 
-The automated tests use Python’s built-in **`unittest` framework**.
+The automated tests are executed with **pytest**, while several test modules are written using Python’s built-in **`unittest` framework**.
 
 ### Why `unittest`?
 
@@ -69,7 +69,7 @@ In the CI pipeline, additional scripts generate **coverage reports** using the c
 
 ### Scope
 
-Unit tests primarily target the **application layer**, implemented in the `AppService` class.
+Unit tests target the **application layer**, implemented in the `AppService` class, and also include a separate unit test module for `OmdbClient`.
 
 These tests isolate business logic from external dependencies by replacing collaborators with **mock objects**.
 
@@ -119,7 +119,7 @@ This makes unit tests:
 
 ### Unit tests implemented
 
-The unit tests verify all main use cases implemented in `AppService`.
+The unit tests verify most main use cases implemented in `AppService`.
 
 #### Authentication
 
@@ -193,7 +193,7 @@ Related requirement:
 -   **test_list_watched_returns_repo_value**
     
 
-These tests verify correct handling of watched movies.
+These tests verify examples of correct handling of watched movies.
 
 Related requirement:
 
@@ -208,12 +208,16 @@ Related requirement:
     
 -   **test_recommend_titles_filters_by_genre_and_excludes_watched**
     
+-   **test_recommend_titles_uses_omdb_scoring_and_feedback**
+    
 
 These tests validate core recommendation rules:
 
 -   recommendations depend on favorite genres
     
 -   already watched movies must be excluded
+    
+-   OMDb-based scoring and persisted feedback can affect ranking
     
 
 Related requirement:
@@ -230,6 +234,8 @@ Related requirement:
 
 This test ensures that the application layer delegates movie metadata retrieval to the OMDb adapter.
 
+A separate unit test module also validates the behavior of `OmdbClient` directly.
+
 Related requirements:
 
 -   **FR4 – Search Movie by Title**
@@ -241,9 +247,7 @@ Related requirements:
 
 ### Success Rate
 
-All unit tests pass successfully.
-
-**Unit testing success rate: 100%.**
+The repository includes unit tests for the implemented components.
 
 ----------
 
@@ -251,13 +255,9 @@ All unit tests pass successfully.
 
 Unit tests provide strong coverage of the application layer.
 
-Estimated coverage levels:
+Coverage reports are generated in the CI pipeline.
 
--   Application layer: **~85–95%**
-    
--   Infrastructure layer: **~80–90%**
-    
--   Overall coverage: **~85–90%**
+-   Exact percentages are not stated here.
     
 
 ----------
@@ -278,6 +278,8 @@ tempfile.TemporaryDirectory()
 ```
 
 to create an isolated database file for each test.
+
+In addition, the project also contains a lightweight UI smoke test at system level.
 
 ----------
 
@@ -379,9 +381,7 @@ Requirement:
 
 ### Success Rate
 
-All repository integration tests pass successfully.
-
-**Integration test success rate: 100%.**
+The repository includes integration tests covering the implemented persistence behavior.
 
 ----------
 
@@ -431,9 +431,7 @@ Related requirements:
 
 ### Success Rate
 
-All system smoke tests pass.
-
-**System test success rate: 100%.**
+The repository includes a lightweight system smoke test for application startup.
 
 ----------
 
@@ -586,6 +584,5 @@ Related requirements:
 # Acceptance Testing Success Rate
 
 All defined manual acceptance tests passed successfully.
-
 
 

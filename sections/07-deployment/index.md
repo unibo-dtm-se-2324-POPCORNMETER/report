@@ -12,7 +12,7 @@ Popcorn Meter is primarily a Streamlit application intended to run on the user's
 
 Users need:
 
-- Python 3.10 or higher (recommended: Python 3.12+)
+- Python >=3.10 and <4.0.0 (recommended: Python 3.12+)
 - `pip`
 - Poetry (recommended for reproducible setup)
 
@@ -34,7 +34,7 @@ OMDB_API_KEY = "your_omdb_key"
 TMDB_API_KEY = "your_tmdb_key"
 ```
 
-Without these keys, some features (for example trending and movie details from external APIs) may be unavailable or degraded.
+Without `OMDB_API_KEY`, movie details lookup will fail; without `TMDB_API_KEY`, trending titles will be unavailable and the UI falls back to a small built-in list.
 
 ### Run the application
 
@@ -64,7 +64,7 @@ In that case:
 
 - Deploy from the artifact repository
 - Set app secrets (`OMDB_API_KEY`, `TMDB_API_KEY`) in Streamlit Cloud
-- Use persistent storage if long-term account/watchlist data is required
+- Hosted deployment may require external persistent storage or another persistence strategy if long-term account/watchlist data must survive restarts, because the current application uses a local SQLite file
 
 If hosted on Streamlit Cloud default settings, storage can be ephemeral, so user data may not persist across restarts/redeployments.
 

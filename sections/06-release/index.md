@@ -14,11 +14,11 @@ For each release, the following artefacts are generated:
 
 -   **Python wheel package (.whl)**  
     Example:  
-    `popcorn_meter-1.1.2-py3-none-any.whl`
+    `popcorn_meter-2.4.7-py3-none-any.whl`
     
 -   **Source distribution (.tar.gz)**  
     Example:  
-    `popcorn_meter-1.1.2.tar.gz`
+    `popcorn_meter-2.4.7.tar.gz`
     
 
 In addition, GitHub automatically generates source code archives:
@@ -99,19 +99,17 @@ Version numbers are automatically determined by **semantic-release**, based on t
 
 ## Latest release
 
-The most recent release (**version 1.1.2**) focused on stability improvements and infrastructure updates. The changes included:
+The most recent release shown in the repository is **version 2.4.7**. It focused on cloud deployment stability and release-pipeline reliability. The changes included:
 
--   fixing merge markers in `pyproject.toml` that were breaking `poetry install`
+-   stabilizing Streamlit cloud deployment
     
--   updating the project README and documentation
+-   adjusting packaging and installation behavior for hosted environments
     
--   improving automated test coverage for key components
+-   updating documentation links and release metadata
     
--   correcting CI workflow configuration
+-   improving release and publishing reliability
     
--   synchronizing deployment pipelines
-    
--   updating project metadata and release configuration
+-   refining CI/CD and deployment configuration
     
 
 These changes ensure that the packaging process, CI pipeline, and release workflow operate correctly.
@@ -215,4 +213,3 @@ New releases are created automatically through the CI/CD pipeline:
     
 
 No manual tagging is required, as version tags are generated automatically by the release workflow.
-
