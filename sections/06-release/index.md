@@ -144,13 +144,19 @@ These secrets are securely stored in GitHub and injected into the deployment wor
 
 The project is distributed under the **Apache License 2.0**.
 
+Apache 2.0 was chosen because it allows free reuse, modification, and redistribution (including for commercial purposes) while providing an explicit patent grant that protects contributors. Unlike the MIT license, it also includes a trademark clause and requires preservation of attribution notices, which is appropriate for an academic open-source project. These characteristics make it suitable for a university project that may be reused or extended by others while retaining clear attribution to the original authors.
+
 This license was selected because it:
 
 -   allows both academic and commercial use
     
 -   permits modification and redistribution
     
--   provides an explicit patent grant
+-   provides an explicit patent grant that protects contributors
+    
+-   includes a trademark clause absent from MIT
+    
+-   requires preservation of attribution notices
     
 -   is widely adopted in open-source software projects
     

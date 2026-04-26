@@ -585,6 +585,174 @@ Related requirements:
 
 ----------
 
+## AT-5 — User Logout
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Navigate to the **Account** page and click **Logout**.
+    
+3.  Attempt to access the **Watchlist** page.
+    
+
+Expected result:
+
+-   Session is cleared.
+    
+-   Personal data is no longer accessible.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR3 – User Logout**
+    
+
+----------
+
+## AT-6 — View Movie Details
+
+Steps:
+
+1.  Navigate to the **Search** page.
+    
+2.  Enter a known movie title and submit.
+    
+3.  View the returned movie details.
+    
+
+Expected result:
+
+-   Title, year, genre, plot, poster, and IMDb rating are all displayed.
+    
+-   No application crash occurs.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR5 – View Movie Details**
+    
+
+----------
+
+## AT-7 — Manage Favourite Genres
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Navigate to the **Genres** page and select one or more genres.
+    
+3.  Save the selection.
+    
+4.  Restart the application and log in again.
+    
+
+Expected result:
+
+-   The previously selected genres are still shown as selected.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR6 – Manage Favourite Genres**
+    
+
+----------
+
+## AT-8 — Manage Watchlist
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Search for a movie and add it to the watchlist.
+    
+3.  Navigate to the **Watchlist** page and verify the movie appears.
+    
+4.  Remove the movie from the watchlist.
+    
+5.  Verify the movie no longer appears in the watchlist.
+    
+
+Expected result:
+
+-   Movie appears in the watchlist after being added.
+    
+-   Movie no longer appears after being removed.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR7 – Manage Watchlist**
+    
+
+----------
+
+## AT-9 — Manage Watched Movies
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Mark a movie as watched.
+    
+3.  Navigate to the **Watched** page and verify the movie appears.
+    
+4.  Remove the movie from the watched list.
+    
+5.  Verify the movie no longer appears in the watched list.
+    
+
+Expected result:
+
+-   Movie appears in watched history after being marked.
+    
+-   Movie no longer appears after being removed.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR8 – Manage Watched Movies**
+    
+
+----------
+
+## AT-10 — Navigation
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Navigate to each of the six sections: **Home**, **Account**, **Genres**, **Watchlist**, **Watched**, **Recommendations**.
+    
+
+Expected result:
+
+-   All six sections load correctly without errors.
+    
+-   Navigation between sections works as expected.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR11 – Navigation**
+    
+
+----------
+
 # Acceptance Testing Success Rate
 
 All defined manual acceptance tests passed successfully.

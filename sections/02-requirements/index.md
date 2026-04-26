@@ -454,6 +454,20 @@ The system shall retrieve movie information using the **OMDb API**.
 OMDb Website  
 [https://www.omdbapi.com/](https://www.omdbapi.com/)
 
+### OMDb API — External Service Reference
+
+| Field | Value |
+|---|---|
+| Service | OMDb API (Open Movie Database) |
+| Base URL | `http://www.omdbapi.com/` |
+| Protocol | HTTP GET |
+| Authentication | API key via `apikey` query parameter |
+| Key Parameters | `t` (title), `apikey`, `plot=full` |
+| Response Format | JSON |
+| Fields Used | Title, Year, Genre, Plot, Poster, imdbRating, Actors, Runtime |
+| Error Handling | `Response=False` → fallback to demo catalog |
+| Documentation | [https://www.omdbapi.com/](https://www.omdbapi.com/) |
+
 ----------
 
 #  Glossary

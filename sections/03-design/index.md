@@ -301,7 +301,8 @@ The system does not implement explicit domain event objects. However, the follow
 ### DDD note
 
 The project does not model the domain through a complete set of rich entities, aggregate roots, value objects, and factories. Instead, the design uses a lighter application-service-centered structure with repository abstractions and clear domain concepts. This choice was considered appropriate for the project scope and is consistent with describing the system as *DDD-inspired* rather than as a strict DDD implementation.
-No explicit domain factories were introduced because the project domain is relatively small and object creation does not require complex construction logic or aggregate assembly.
+
+No explicit domain factories were introduced in this project. Object creation across all domain concepts is straightforward: users are created directly by the repository using a username, email, and hashed password; watchlist and watched entries are simple records with no complex assembly logic. Because no multi-step construction, aggregate assembly, or conditional creation logic is required, introducing dedicated factory classes would add structural overhead without any design benefit at this project's scale.
     
 
 
@@ -572,9 +573,54 @@ Recommendation generation behaves as follows:
 
 This behavior is deterministic and request-driven.
 
+### State diagram: User Session
+
+The following state diagram describes the lifecycle of a user session.
+
+```plantuml
+@startuml
+[*] --> Anonymous
+Anonymous --> Authenticated : login(valid credentials)
+Authenticated --> Anonymous : logout()
+Anonymous --> Anonymous : login(invalid credentials)
+@enduml
+```
+
+### State diagram: Watchlist Item Lifecycle
+
+The following state diagram describes the lifecycle of a movie item relative to a user's lists.
+
+```plantuml
+@startuml
+[*] --> NotInList
+NotInList --> InWatchlist : add_to_watchlist()
+InWatchlist --> NotInList : remove_from_watchlist()
+InWatchlist --> Watched : add_to_watched()
+Watched --> NotInList : remove_from_watched()
+@enduml
+```
+
 ----------
 
 ##  Data-related aspects
+
+### Data-flow diagram: Recommendation pipeline
+
+The following diagram shows how data flows through the system when generating recommendations.
+
+```
+[User Profile Data] ──► AppService ──► [OMDb API]
+                            │                │
+                            ▼                ▼
+                     [Hybrid Scorer] ◄── [Movie Metadata]
+                            │
+                            ▼
+                     [Ranked Results] ──► [UI]
+```
+
+User genre preferences and watched history are retrieved from SQLite via `SqliteRepo`, passed to `AppService`, which queries `OmdbClient` for movie metadata. The hybrid scorer combines both inputs to produce a ranked list returned to the Streamlit UI.
+
+----------
 
 ### Persistent data
 
