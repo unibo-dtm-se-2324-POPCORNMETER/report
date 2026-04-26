@@ -553,7 +553,7 @@ Result: **Passed**
 
 Related requirement:
 
--   **FR9 – Generate Recommendations**
+-   **FR10 – Generate Recommendations**
     
 
 ----------
@@ -612,7 +612,36 @@ Related requirement:
 
 ----------
 
-## AT-6 — View Movie Details
+## AT-6 — Provide Movie Feedback
+
+Steps:
+
+1.  Log in with valid credentials.
+    
+2.  Open the **Recommendations** page and view a recommended movie.
+    
+3.  Submit a feedback rating (like or dislike) for the movie.
+    
+4.  Re-open the Recommendations page.
+    
+
+Expected result:
+
+-   Feedback is saved and influences future recommendations.
+    
+-   No application crash occurs.
+    
+
+Result: **Passed**
+
+Related requirement:
+
+-   **FR9 – Provide Movie Feedback**
+    
+
+----------
+
+## AT-7 — View Movie Details
 
 Steps:
 
@@ -639,7 +668,7 @@ Related requirement:
 
 ----------
 
-## AT-7 — Manage Favourite Genres
+## AT-8 — Manage Favourite Genres
 
 Steps:
 
@@ -666,7 +695,7 @@ Related requirement:
 
 ----------
 
-## AT-8 — Manage Watchlist
+## AT-9 — Manage Watchlist
 
 Steps:
 
@@ -697,7 +726,7 @@ Related requirement:
 
 ----------
 
-## AT-9 — Manage Watched Movies
+## AT-10 — Manage Watched Movies
 
 Steps:
 
@@ -728,7 +757,7 @@ Related requirement:
 
 ----------
 
-## AT-10 — Navigation
+## AT-11 — Navigation
 
 Steps:
 
