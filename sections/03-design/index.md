@@ -573,6 +573,14 @@ Recommendation generation behaves as follows:
 
 This behavior is deterministic and request-driven.
 
+### Flowchart: Recommendation algorithm
+
+The following flowchart shows the full decision logic of the `recommend_titles` use case, including genre filtering, OMDb-based scoring, feedback adjustment, and demo-catalog fallback.
+
+![Recommendation algorithm flowchart](https://uml.planttext.com/plantuml/png/ZLHHRjim3FttAVXfeskNTUXFZ6xDK6Gei7N0YXv0aUX4Y28Pafp45zW1TiITP9HirtQSOFknB8hlYNmazU0yixxQgIJ-9FElwA5WUrDPwH7Mg2swF945fCzcSl0v0xz13McDBai0vZ_HLrO3xafVWvBEvsHrtfG9QY6BXlx0FD-WW9tPoq3U6nj4t9Te7Ut8hK0KAyQtTF2baae0PyGb64LH6gEIr943UEaLEhZgYJ82B94syEFxume8mA0m5f3nJJAA0Vxy-WtSA8NSKzHRiZFkZQNO3Xkf4D9bYnlS7I_CG3f8DHvzI3-ej50McQYx94yL8erUjh8Cig1onAnDQpu9DO_Mm1XD97PfD07sJCaph86N6ujmTGyVuTZK1ymUhM9bFd6v9PUOucMNftWjyrAluJtSJXq-X1f1gOo7BTO7OqdDa7Jd6M9_qdqzpWKzv9lTt7NGfbbwccNR0e178fgqNU_uBHJl_F58ePjP_dOGwX2mZzAf_u1VtyFT23w8jGdYrP4khN8EB-Gz3ASQ00PIZxbFDMdGds1sGTU5eA4mu8ARU9l5CLFtrwpqRTjT68rP7Fg5hcDFNhSyr8ULcbPW_cAiXrNTN0S27G-SUfqFNWLw1k2v7TJ-NHXCmNmfbISf1EuCJPfdogmJ8ZrzTjubUEIg2lpTdFtxdfZY0otqsFq5)
+
+----------
+
 ### State diagram: User Session
 
 The following state diagram describes the lifecycle of a user session.
